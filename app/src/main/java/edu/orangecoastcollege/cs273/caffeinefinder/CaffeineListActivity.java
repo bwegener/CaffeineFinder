@@ -1,12 +1,12 @@
 package edu.orangecoastcollege.cs273.caffeinefinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -102,30 +102,13 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
         {
             LinearLayout selectedLayout = (LinearLayout) v;
             Location selectedLocation = (Location) selectedLayout.getTag();
-            Log.i("Caffeine Finder", selectedLocation)
+            Log.i("Caffeine Finder", selectedLocation.toString());
+            Intent detailsIntent = new Intent(this, CaffeineDetailsActivity.class);
+
+            detailsIntent.putExtra("SelectedLocation", selectedLocation);
+            startActivity(detailsIntent);
 
         }
-
-        TextView locationNameTextView = (TextView) findViewById(R.id.locationListNameTextView);
-        TextView locationAddressTextView = (TextView) findViewById(R.id.locationListAddressTextView);
-        TextView locationPhoneTextView = (TextView) findViewById(R.id.locationListPhoneTextView);
-
-        Location selectedLocation = getIntent().getExtras().getParcelable("SelectedLocation");
-
-        LatLng locationPosition = new LatLng(selectedLocation.getLatitude(), selectedLocation.getLongitude());
-
-        mMap.addMarker(new MarkerOptions().position(locationPosition).title(selectedLocation.getName()));
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(locationPosition)
-                .zoom(15.0f)
-                .build();
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
-        mMap.moveCamera(cameraUpdate);
-
-        locationNameTextView.setText(selectedLocation.getName());
-        locationAddressTextView.setText(selectedLocation.getFullAddress());
-        locationPhoneTextView.setText(selectedLocation.getPhone());
-
     }
 
     // TODO: (4) Create a viewLocationDetails(View v) method to create a new Intent to the

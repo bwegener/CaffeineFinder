@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.orangecoastcollege.cs273.caffeinefinder.CaffeineDetailsActivity">
+
+    <fragment
+        android:id="@+id/locationDetailsMapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/locationDetailsNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="30sp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/locationDetailsAddressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="18sp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/locationDetailsPhoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textSize="18sp"
+        android:text="" />
+</LinearLayout>
