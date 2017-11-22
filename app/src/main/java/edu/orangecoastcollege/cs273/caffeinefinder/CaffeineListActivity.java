@@ -53,6 +53,10 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
         mapFragment.getMapAsync(this);
     }
 
+    /**
+     * The <code>OnMapReady</code> shows the user location and links the camera.
+     * @param googleMap
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         // This method is called *AFTER* the map is loaded from Google Play Services
@@ -96,6 +100,12 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
     // COMPLETED: Then add normal markers for all the caffeine locations from the allLocationsList.
     // COMPLETED: Set the zoom level of the map to 15.0f
 
+    /**
+     * This connects the list with the details layout
+     * so that when the user clicks a coffee shop from the list
+     * it will inflate the location and show the map.
+     * @param v
+     */
     public void viewLocationDetails(View v)
     {
         if (v instanceof LinearLayout)
@@ -111,6 +121,6 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
         }
     }
 
-    // TODO: (4) Create a viewLocationDetails(View v) method to create a new Intent to the
-    // TODO: CaffeineDetailsActivity class, sending it the selectedLocation the user picked from the locationsListView
+    // COMPLETED: (4) Create a viewLocationDetails(View v) method to create a new Intent to the
+    // COMPLETED: CaffeineDetailsActivity class, sending it the selectedLocation the user picked from the locationsListView
 }
